@@ -7,8 +7,20 @@ public class ProjectTest extends BaseTest {
     @Test
     public void checkCreateProject() {
         loginPage.openPage();
-        loginPage.login("anastasiaroubo@gmail.com", "Qase123456Java!");
-        projectsPage.waitUntilOpened();
+        loginPage.isPageOpened();
+        loginPage.login(user, password);
+        projectsPage.isPageOpened();
+        projectsPage.openCreateNewProjectModal();
+        createNewProjectModal.createNewProject("Ivanova", "WA");
+
+    }
+
+    @Test
+    public void checkRemoveProject() {
+        loginPage.openPage();
+        loginPage.isPageOpened();
+        loginPage.login(user, password);
+        projectsPage.isPageOpened();
         projectsPage.removeProject("Ivanova");
     }
 }
