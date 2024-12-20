@@ -7,9 +7,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
-import pages.CreateNewProjectModal;
-import pages.LoginPage;
-import pages.ProjectsPage;
+import pages.*;
 import utils.PropertyReader;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
@@ -20,6 +18,8 @@ public class BaseTest {
     LoginPage loginPage;
     ProjectsPage projectsPage;
     CreateNewProjectModal createNewProjectModal;
+    ProjectPage projectPage;
+    CreateNewTestPage createNewTestPage;
 
     String user = System.getProperty("user", PropertyReader.getProperty("user"));
     String password = System.getProperty("password", PropertyReader.getProperty("password"));
@@ -37,6 +37,8 @@ public class BaseTest {
         loginPage = new LoginPage();
         projectsPage = new ProjectsPage();
         createNewProjectModal = new CreateNewProjectModal();
+        projectPage = new ProjectPage();
+        createNewTestPage = new CreateNewTestPage();
 
         SelenideLogger.addListener("AllureSelenide", new AllureSelenide()
                 .screenshots(true)

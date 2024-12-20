@@ -2,7 +2,7 @@ package pages;
 
 public abstract class BasePage {
 
-    public abstract void openPage();
+    public abstract BasePage openPage();
 
-    public abstract void isPageOpened();
+    public abstract BasePage isPageOpened();
 }
